@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LoggerModule } from 'nestjs-pino';
 import { Connection, getConnectionOptions } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -11,7 +12,7 @@ import { UsersModule } from './modules/user.module';
       Object.assign(await getConnectionOptions(), {
         autoLoadEntities: true,
       }),
-  }), UsersModule],
+  }), UsersModule, LoggerModule.forRoot()],
   controllers: [AppController],
   providers: [AppService],
 })
