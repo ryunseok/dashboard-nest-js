@@ -4,7 +4,7 @@
   "port": 3306,
   "username": "root",
   "password": "test1234",
-  "database": "test",
+  "database": "dashboard_local",
   "entities": ["dist/src/entities/*.entity{.ts,.js}"],
   "synchronize": true
 }
