@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
-import { validate } from "class-validator";
+import { Strategy } from "passport-jwt";
 import { LoginUserDto } from "./dto/login-user.dto";
 import { AuthService } from "./services/auth.service";
 

@@ -22,7 +22,7 @@ export class UsersService {
         error: 'AlreadyUserExists'
       })
     }
-    let user = new User;
+    const user = new User;
     const passwordSalt = await bcrypt.genSalt(bcryptConstant.saltOrRounds);
 
     user.email = createUserDto.email;

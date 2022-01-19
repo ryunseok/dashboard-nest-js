@@ -9,12 +9,17 @@ import { AuthModule } from './modules/auth.module';
 import { Auth } from './auth';
 
 @Module({
-  imports: [TypeOrmModule.forRootAsync({
-    useFactory: async () =>
-      Object.assign(await getConnectionOptions(), {
-        autoLoadEntities: true,
-      }),
-  }), UsersModule, LoggerModule.forRoot(), AuthModule],
+  imports: [
+    TypeOrmModule.forRootAsync({
+      useFactory: async () =>
+        Object.assign(await getConnectionOptions(), {
+          autoLoadEntities: true,
+        }),
+    }),
+    UsersModule,
+    LoggerModule.forRoot(),
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService, Auth],
 })
