@@ -4,6 +4,7 @@ import { CreateUserDto } from "src/dto/create-user.dto";
 import { User } from "src/entities/user.entity";
 import { Connection, Repository } from "typeorm";
 import * as bcrypt from 'bcrypt';
+import { bcryptConstant } from "src/constants";
 
 @Injectable()
 export class UsersService {
@@ -22,7 +23,7 @@ export class UsersService {
       })
     }
     let user = new User;
-    const passwordSalt = await bcrypt.genSalt(10);
+    const passwordSalt = await bcrypt.genSalt(bcryptConstant.saltOrRounds);
 
     user.email = createUserDto.email;
     user.role = createUserDto.role || "user";
