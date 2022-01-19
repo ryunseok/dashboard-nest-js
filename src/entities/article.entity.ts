@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, Exclusion } from 'typeorm'
+import { userInfo } from 'os';
+import { Entity, Column, PrimaryGeneratedColumn, Exclusion, OneToOne } from 'typeorm'
+import { User } from './user.entity';
 
 @Entity()
 export class Article {
@@ -7,13 +9,4 @@ export class Article {
 
   @Column()
   title: string;
-
-  @Column()
-  content: string;
-
-  @Column()
-  passwordSalt: string;
-
-  @Column({ default: true})
-  isActive: boolean;
 }

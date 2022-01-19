@@ -8,11 +8,14 @@ export class User {
   @Column({ unique: true})
   email: string;
 
+  @Column({ unique: true})
+  userName: string;
+
   @Column()
   passwordHash: string;
 
-  @Column()
-  passwordSalt: string;
+  @Column({ default: 'user' })
+  role: string;
 
   @Column({ default: true})
   isActive: boolean;
