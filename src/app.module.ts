@@ -6,7 +6,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './modules/user.module';
 import { AuthModule } from './modules/auth.module';
-import { Auth } from './auth';
 
 @Module({
   imports: [
@@ -21,7 +20,7 @@ import { Auth } from './auth';
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService, Auth],
+  providers: [AppService],
 })
 export class AppModule {
   constructor(private connection: Connection) {}

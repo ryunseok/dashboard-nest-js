@@ -4,7 +4,7 @@ import { CreateUserDto } from "src/dto/create-user.dto";
 import { User } from "src/entities/user.entity";
 import { Connection, Repository } from "typeorm";
 import * as bcrypt from 'bcrypt';
-import { bcryptConstant } from "src/constants";
+import { bcryptConstant } from "src/common/constants";
 
 @Injectable()
 export class UsersService {
