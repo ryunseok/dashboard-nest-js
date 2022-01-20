@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateArticleDto } from "src/dto/create-article.dto";
+import { UpdateArticleDto } from "src/dto/update-article.dto";
 import { Article } from "src/entities/article.entity";
 import { Repository } from "typeorm";
 
@@ -31,6 +32,10 @@ export class AtricleService {
 
   async remove(id: number): Promise<void> {
     await this.articleRepository.delete(id);
+  }
+
+  async update(id: number, articleInfo: UpdateArticleDto): Promise<void> {
+    await this.articleRepository.update(id, articleInfo);
   }
 
 }

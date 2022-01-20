@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { CreateArticleDto } from "src/dto/create-article.dto";
+import { UpdateArticleDto } from "src/dto/update-article.dto";
 import { AtricleService } from "src/services/article.service";
 
 @Controller('board')
@@ -24,5 +25,10 @@ export class BoardController {
   @Delete('/:id')
   async remove(@Param('id') id: number) {
     return this.articleService.remove(id);
+  }
+
+  @Patch('/:id')
+  async update(@Param('id') id: number, @Body() articleInfo: UpdateArticleDto) {
+    return this.articleService.update(id, articleInfo);
   }
 }
