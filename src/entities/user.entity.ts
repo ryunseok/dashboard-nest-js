@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, Exclusion, OneToMany } from 'typeorm'
+import { Article } from './article.entity';
 
 @Entity()
 export class User {
@@ -19,4 +20,7 @@ export class User {
 
   @Column({ default: true})
   isActive: boolean;
+
+  // @OneToMany(() => Article, (article) => article.user, { nullable: true })
+  // articles: Article[];
 }

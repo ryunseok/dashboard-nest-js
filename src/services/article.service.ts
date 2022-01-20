@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { CreateArticleDto } from "src/dto/create-article.dto";
 import { Article } from "src/entities/article.entity";
 import { Repository } from "typeorm";
 
@@ -9,5 +10,27 @@ export class AtricleService {
     @InjectRepository(Article)
     private articleRepository: Repository<Article>,
   ) {}
+
+  async create(createArticleDto: CreateArticleDto): Promise<any> {
+
+    const article = new Article;
+
+    article.content = createArticleDto.content;
+    article.title = createArticleDto.title;
+
+    await this.articleRepository.save(article);
+  }
+
+  findAll(): Promise<Article[]> {
+    return this.articleRepository.find();
+  }
+
+  findOne(id: number): Promise<Article> {
+    return this.articleRepository.findOne({id: id});
+  }
+
+  async remove(id: number): Promise<void> {
+    await this.articleRepository.delete(id);
+  }
 
 }

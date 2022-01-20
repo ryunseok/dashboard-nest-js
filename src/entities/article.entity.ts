@@ -1,5 +1,4 @@
-import { userInfo } from 'os';
-import { Entity, Column, PrimaryGeneratedColumn, Exclusion, OneToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, Exclusion, OneToOne, ManyToOne } from 'typeorm'
 import { User } from './user.entity';
 
 @Entity()
@@ -9,4 +8,10 @@ export class Article {
 
   @Column()
   title: string;
+
+  @Column()
+  content: string;
+
+  // @ManyToOne(() => User, (user) => user.articles, { onDelete: 'SET NULL'})
+  // user: User;
 }
